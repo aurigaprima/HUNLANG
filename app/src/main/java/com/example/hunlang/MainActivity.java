@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         TogetherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openTogetherActivity();
+                openRulesActivity();
             }
         });
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         MixedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRulesActivity();
+                openTogetherActivity();
             }
         });
 
