@@ -157,7 +157,7 @@ public class Mixed_Activity extends AppCompatActivity {
             } });
 
 
-        MixedActivityBackButton = (Button) findViewById(R.id.button_back_TogetherScreen_1);
+        MixedActivityBackButton = (Button) findViewById(R.id.button_back_MixedScreen_1);
         MixedActivityBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
