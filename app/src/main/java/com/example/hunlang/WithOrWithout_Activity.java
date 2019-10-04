@@ -7,20 +7,24 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class WithOrWithout_Activity extends AppCompatActivity {
-    private Button WithOrWithoutActivityBackButton;
+//    private Button WithOrWithoutActivityBackButton;
+    private ImageButton imageButton_WithOtWithout;
 
     private TextView szovegmezo1,szovegmezo2;
     private Button gomb1, gomb2, gomb3;
     private ImageView kep;
 
     String szavak[][] = {
-            {"Móriczcal","Móriccal"},{"Babitscsal","Babiccsal"}
+            {"Móriczcal","Móriccal"},{"Babitscsal","Babiccsal"},{"Szabolccsal","Szabolcscsal"},{"Kodállyal","Kodályjal"},{"%-kal","%-al"},
+            {"Beatrixszal","Beatrix-szal"},{"Kossuthtal","Kossuttal"},{"Véghgel","Véggel"},{"Madáchcsal","Madáccsal"},{"Kiss-sel","Kissel"},{"Papp-pal","Pappal"},
+            {"Mariann-nal","Mariannal"},{"1-gyel","1-el"},{"20-szal","20-al"},
     };
     Random random = new Random();
     int arrayLength = szavak.length;
@@ -50,6 +54,14 @@ public class WithOrWithout_Activity extends AppCompatActivity {
         gomb2 = (Button) findViewById(R.id.button2_WithOrWithout_Screen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         gomb3 = (Button) findViewById(R.id.button3_WithOrWithout_Screen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         kep = (ImageView) findViewById(R.id.imageView_WithOrWithout_Screen_1);
+        imageButton_WithOtWithout = (ImageButton) findViewById(R.id.imageButton);
+        imageButton_WithOtWithout.setBackgroundColor(Color.WHITE);
+        imageButton_WithOtWithout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
 
         gomb3.setEnabled(false);
 
@@ -120,13 +132,13 @@ public class WithOrWithout_Activity extends AppCompatActivity {
             } });
 
 
-        WithOrWithoutActivityBackButton = (Button) findViewById(R.id.button_back_WithOrWithout_Screen_1);
-        WithOrWithoutActivityBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
+//        WithOrWithoutActivityBackButton = (Button) findViewById(R.id.button_back_WithOrWithout_Screen_1);
+ //       WithOrWithoutActivityBackButton.setOnClickListener(new View.OnClickListener() {
+ //           @Override
+ //           public void onClick(View view) {
+ //               openMainActivity();
+  //          }
+  //      });
     }
     private void openMainActivity() {
         Intent intent = new Intent(this,MainActivity.class);
