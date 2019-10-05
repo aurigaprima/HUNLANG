@@ -14,9 +14,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class WithOrWithout_Activity extends AppCompatActivity {
-//    private Button WithOrWithoutActivityBackButton;
     private ImageButton imageButton_WithOtWithout;
-
     private TextView szovegmezo1,szovegmezo2;
     private Button gomb1, gomb2, gomb3;
     private ImageView kep;
@@ -131,14 +129,6 @@ public class WithOrWithout_Activity extends AppCompatActivity {
                 kep.setImageResource(R.drawable.question);
             } });
 
-
-//        WithOrWithoutActivityBackButton = (Button) findViewById(R.id.button_back_WithOrWithout_Screen_1);
- //       WithOrWithoutActivityBackButton.setOnClickListener(new View.OnClickListener() {
- //           @Override
- //           public void onClick(View view) {
- //               openMainActivity();
-  //          }
-  //      });
     }
     private void openMainActivity() {
         Intent intent = new Intent(this,MainActivity.class);

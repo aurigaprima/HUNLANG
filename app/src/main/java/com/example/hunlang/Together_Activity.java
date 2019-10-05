@@ -7,15 +7,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class Together_Activity extends AppCompatActivity {
-//    private TextView szoveg1;
-    private Button TogetherActivityBackButton;
-
+    private ImageButton imageButton_Together;
     private TextView szovegmezo1,szovegmezo2;
     private Button gomb1, gomb2, gomb3;
     private ImageView kep;
@@ -56,8 +55,6 @@ public class Together_Activity extends AppCompatActivity {
         wordIndex1 = 0;
         wordIndex2 = 1;
 //Szövegmezők feliratozása
-        //szovegmezo1 = (TextView) findViewById(R.id.szoveg1);
-        //szovegmezo1.setText("Eredmény");
         szovegmezo2 = (TextView) findViewById(R.id.szoveg2_TogetherScreen_1);
         szovegmezo2.setText(str1);
 //gombok feliratozása
@@ -65,6 +62,15 @@ public class Together_Activity extends AppCompatActivity {
         gomb2 = (Button) findViewById(R.id.button2_TogetherScreen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         gomb3 = (Button) findViewById(R.id.button3_TogetherScreen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         kep = (ImageView) findViewById(R.id.imageView_TogetherScreen_1);
+
+        imageButton_Together = (ImageButton) findViewById(R.id.imageButton);
+        imageButton_Together.setBackgroundColor(Color.WHITE);
+        imageButton_Together.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
 
         gomb3.setEnabled(false);
 
@@ -135,13 +141,6 @@ public class Together_Activity extends AppCompatActivity {
             } });
 
 
-        TogetherActivityBackButton = (Button) findViewById(R.id.button_back_TogetherScreen_1);
-        TogetherActivityBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
     }
     private void openMainActivity() {
         Intent intent = new Intent(this,MainActivity.class);

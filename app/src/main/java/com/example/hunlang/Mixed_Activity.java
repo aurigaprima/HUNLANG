@@ -7,14 +7,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class Mixed_Activity extends AppCompatActivity {
-    private Button MixedActivityBackButton;
-
+    private ImageButton imageButton_Mixed;
     private TextView szovegmezo1,szovegmezo2;
     private Button gomb1, gomb2, gomb3;
     private ImageView kep;
@@ -63,7 +63,6 @@ public class Mixed_Activity extends AppCompatActivity {
     int randomInteger,randomszo,wordIndex1,wordIndex2,goodanswer,wronganswer;
     String str1 = "Összes kérdés/Jó/Rossz válaszok száma: ";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +77,6 @@ public class Mixed_Activity extends AppCompatActivity {
         wordIndex1 = 0;
         wordIndex2 = 1;
 //Szövegmezők feliratozása
-        //szovegmezo1 = (TextView) findViewById(R.id.szoveg1);
-        //szovegmezo1.setText("Eredmény");
         szovegmezo2 = (TextView) findViewById(R.id.szoveg2_MixedScreen_1);
         szovegmezo2.setText(str1);
 //gombok feliratozása
@@ -87,6 +84,15 @@ public class Mixed_Activity extends AppCompatActivity {
         gomb2 = (Button) findViewById(R.id.button2_MixedScreen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         gomb3 = (Button) findViewById(R.id.button3_MixedScreen_1); // Also gomb beallitas, szoveg beallitas es gombnyomas esemeny figyeles
         kep = (ImageView) findViewById(R.id.imageView_MixedScreen_1);
+
+        imageButton_Mixed = (ImageButton) findViewById(R.id.imageButton);
+        imageButton_Mixed.setBackgroundColor(Color.WHITE);
+        imageButton_Mixed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
 
         gomb3.setEnabled(false);
 
@@ -155,16 +161,6 @@ public class Mixed_Activity extends AppCompatActivity {
                 gomb3.setEnabled(false);
                 kep.setImageResource(R.drawable.question);
             } });
-
-
-        MixedActivityBackButton = (Button) findViewById(R.id.button_back_MixedScreen_1);
-        MixedActivityBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
-
 
     }
     private void openMainActivity() {
