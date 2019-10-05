@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class Mixed_Activity extends AppCompatActivity {
     private ImageButton imageButton_Mixed;
-    private TextView szovegmezo1,szovegmezo2;
+    private TextView szovegmezo2;
     private Button gomb1, gomb2, gomb3;
     private ImageView kep;
 
