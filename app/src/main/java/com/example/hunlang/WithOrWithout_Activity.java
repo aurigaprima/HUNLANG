@@ -22,7 +22,8 @@ public class WithOrWithout_Activity extends AppCompatActivity {
     String szavak[][] = {
             {"Móriczcal","Móriccal"},{"Babitscsal","Babiccsal"},{"Szabolccsal","Szabolcscsal"},{"Kodállyal","Kodályjal"},{"%-kal","%-al"},
             {"Beatrixszal","Beatrix-szal"},{"Kossuthtal","Kossuttal"},{"Véghgel","Véggel"},{"Madáchcsal","Madáccsal"},{"Kiss-sel","Kissel"},{"Papp-pal","Pappal"},
-            {"Mariann-nal","Mariannal"},{"1-gyel","1-el"},{"20-szal","20-al"},
+            {"Mariann-nal","Mariannal"},{"1-gyel","1-el"},{"20-szal","20-al"},{"Janus Pannoniusszal","Janus Pannonius-szal"},{"Bachhal","Bach-al"},{"Ovidiusszal","Ovidius-szal"},
+            {"Balzackal","Balzac-kal"},{"Lotzcal","Lotz-cal"},
     };
     Random random = new Random();
     int arrayLength = szavak.length;

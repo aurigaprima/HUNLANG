@@ -26,20 +26,27 @@ public class Rules_Activity extends AppCompatActivity {
     Random random = new Random();
     int szavak_arrayLength = szavak.length; // a szavakat tartalmazó tömb hosszának megállapítása
     int fogalmak_arrayLength = fogalmak.length; // a fogalmakat tartalmazó tömb hosszának megállapítása
-    int randomszam,randomszo;
+    int randomszam,randomszo,randomfogalom;
+    int randomFogalom1,randomFogalom2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules_);
 
-        randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a tömbből
+        randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
         randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
+        randomfogalom = random.nextInt(fogalmak_arrayLength); // véletlen fogalom kválasztása
+// Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyznek meg a kiválasztott szóhoz tartozó fogalommal
+        do {
+            randomFogalom1 = random.nextInt(fogalmak_arrayLength);
+        } while (fogalmak[randomFogalom1] != szavak[randomszam][1] );
+
+
 //Szövegmezők feliratozása
         question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
-        question.setText("Az");
         result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
-        result.setText("Ze");
+//        result.setText(fogalmak[randomFogalom1]);
 //gombok megjelenítése
         gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
         gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
@@ -47,10 +54,7 @@ public class Rules_Activity extends AppCompatActivity {
         gombForward = (Button) findViewById(R.id.button3_RulesScreen_1); // Tovább gomb beallitas
         kep = (ImageView) findViewById(R.id.imageView_RulesScreen_1);
         gombForward.setEnabled(false); // A továb gomb még inaktív
-
-        question.setText(szavak[randomszam][0]);
-
-// A vissza gomb
+        // A vissza gomb
         homeButton_Rules = (ImageButton) findViewById(R.id.imageButton);
         homeButton_Rules.setBackgroundColor(Color.WHITE);
         homeButton_Rules.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +63,21 @@ public class Rules_Activity extends AppCompatActivity {
                 openMainActivity();
             }
         });
-//
-
+// A keresett szo kiirása
+        question.setText(szavak[randomszam][0]);
+// ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ
+        switch (randomszo) {
+            case 1:
+                gombUpper.setText(szavak[randomszam][1]);
+                break;
+            case 2:
+                gombCenter.setText(szavak[randomszam][1]);
+                break;
+            case 3:
+                gombLower.setText(szavak[randomszam][1]);
+                break;
+        }
+// A többi gomb szövegének beállítása
 
     }
     private void openMainActivity() {
