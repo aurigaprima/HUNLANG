@@ -36,17 +36,18 @@ public class Rules_Activity extends AppCompatActivity {
 
         randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
         randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
-        randomfogalom = random.nextInt(fogalmak_arrayLength); // véletlen fogalom kválasztása
+//        randomfogalom = random.nextInt(fogalmak_arrayLength); // véletlen fogalom kválasztása
 // Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
             randomFogalom1 = random.nextInt(fogalmak_arrayLength);
-        } while (fogalmak[randomFogalom1] != szavak[randomszam][1] );
+            randomFogalom2 = random.nextInt(fogalmak_arrayLength);
+        } while (randomFogalom1 == randomFogalom2 & ( (szavak[randomszo][1].equals(fogalmak[randomFogalom1])) | (szavak[randomszo][1].equals(fogalmak[randomFogalom2]))  ));
 
 
 //Szövegmezők feliratozása
         question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
         result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
-//        result.setText(fogalmak[randomFogalom1]);
+        result.setText(randomFogalom1 + " " + randomFogalom2);
 //gombok megjelenítése
         gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
         gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
@@ -67,13 +68,14 @@ public class Rules_Activity extends AppCompatActivity {
         question.setText(szavak[randomszam][0]);
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ
         switch (randomszo) {
-            case 1:
+            case 0:
                 gombUpper.setText(szavak[randomszam][1]);
+
                 break;
-            case 2:
+            case 1:
                 gombCenter.setText(szavak[randomszam][1]);
                 break;
-            case 3:
+            case 2:
                 gombLower.setText(szavak[randomszam][1]);
                 break;
         }
