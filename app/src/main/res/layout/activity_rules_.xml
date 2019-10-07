@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
+        android:text="Tovább"
         android:textColor="#000000"
-        android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/szoveg4_RulesScreen_1" />
 
