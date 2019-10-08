@@ -56,8 +56,8 @@ public class Rules_Activity extends AppCompatActivity {
         do {
             randomFogalom1 = random.nextInt(fogalmak_arrayLength);
             randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-        } while (randomFogalom1 == randomFogalom2 & ( (szavak[randomszam][1].equals(fogalmak[randomFogalom1])) | (szavak[randomszam][1].equals(fogalmak[randomFogalom2]))  ));
-
+        } while (randomFogalom1 == randomFogalom2 &&  szavak[randomszam][1].equals(fogalmak[randomFogalom1]) && szavak[randomszam][1].equals(fogalmak[randomFogalom2])  );
+        
         goodanswer = 0;
         wronganswer = 0;
 
