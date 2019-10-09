@@ -19,7 +19,6 @@ public class Rules_Activity extends AppCompatActivity {
     private Button gombUpper, gombLower, gombCenter, gombForward;
     private ImageView kep;
 
-
     String fogalmak[] = {"Névelő","Névmás","Melléknévi igenév","Főnévi igenév","Összeolvadás","Mássalhangzó rövidülés","Mássalhangzó kiesés",
             "Írásban jelöletlen teljes hasonulás","Írásban jelölt teljes hasonulás","Részleges hasonulás - Zöngétlenné válás","Részleges hasonulás - Zöngéssé válás",
             "Részleges hasonulás - Képzés helye szerinti","Főnévi mutató névmás","Melléknévi mutató névmás","Számnévi mutató névmás"
@@ -56,15 +55,15 @@ public class Rules_Activity extends AppCompatActivity {
         do {
             randomFogalom1 = random.nextInt(fogalmak_arrayLength);
             randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-        } while (randomFogalom1 == randomFogalom2 &&  szavak[randomszam][1].equals(fogalmak[randomFogalom1]) && szavak[randomszam][1].equals(fogalmak[randomFogalom2])  );
-        
+    } while (fogalmak[randomFogalom1].equals(fogalmak[randomFogalom2]) & (szavak[randomszam][1].equals(fogalmak[randomFogalom1]) | szavak[randomszam][1].equals(fogalmak[randomFogalom2])));
+
         goodanswer = 0;
         wronganswer = 0;
 
 //Szövegmezők feliratozása
         question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
         result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
- //       result.setText(randomFogalom1 + " - " + randomFogalom2);
+//        result.setText(randomFogalom1 + " - " + randomFogalom2 + " : " + randomszo);
 //gombok megjelenítése
         gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
         gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
@@ -168,7 +167,7 @@ public class Rules_Activity extends AppCompatActivity {
                 do {
                     randomFogalom1 = random.nextInt(fogalmak_arrayLength);
                     randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-                } while (randomFogalom1 == randomFogalom2 & ( (szavak[randomszam][1].equals(fogalmak[randomFogalom1])) | (szavak[randomszam][1].equals(fogalmak[randomFogalom2]))  ));
+                } while (fogalmak[randomFogalom1].equals(fogalmak[randomFogalom2]) & (szavak[randomszam][1].equals(fogalmak[randomFogalom1]) | szavak[randomszam][1].equals(fogalmak[randomFogalom2])));
                 // A keresett szo kiirása
                 question.setText(szavak[randomszam][0]);
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ, a másik 2-re pedig rosszakat
