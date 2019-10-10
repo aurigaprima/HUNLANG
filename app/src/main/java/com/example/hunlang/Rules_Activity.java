@@ -58,13 +58,13 @@ public class Rules_Activity extends AppCompatActivity {
             if(!szavak[randomszam][1].equals(fogalmak[i])) {
                 fogalmak2[j] = fogalmak[i];
                 j++;
-            }
+            } 
         }
 // Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
             randomFogalom1 = random.nextInt(fogalmak2.length);
             randomFogalom2 = random.nextInt(fogalmak2.length);
-    } while (randomFogalom2 ==randomFogalom1);
+    } while (randomFogalom2 == randomFogalom1);
 
         goodanswer = 0;
         wronganswer = 0;
@@ -72,7 +72,7 @@ public class Rules_Activity extends AppCompatActivity {
 //Szövegmezők feliratozása
         question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
         result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
-//        result.setText(randomFogalom1 + " - " + randomFogalom2 + " : " + randomszo);
+//        result.setText(fogalmak.length + " - " + fogalmak2.length);
 //gombok megjelenítése
         gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
         gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
