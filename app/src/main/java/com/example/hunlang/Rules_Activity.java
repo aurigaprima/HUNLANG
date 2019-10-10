@@ -23,6 +23,7 @@ public class Rules_Activity extends AppCompatActivity {
             "Írásban jelöletlen teljes hasonulás","Írásban jelölt teljes hasonulás","Részleges hasonulás - Zöngétlenné válás","Részleges hasonulás - Zöngéssé válás",
             "Részleges hasonulás - Képzés helye szerinti","Főnévi mutató névmás","Melléknévi mutató névmás","Számnévi mutató névmás"
     };
+    String fogalmak2[] = new String[fogalmak.length-1];
     String szavak[][] = {
             {"Az","Névelő"},{"Hallgat","Mássalhangzó rövidülés"},{"Bátyja","Írásban jelöletlen teljes hasonulás"},{"Ilyen","Melléknévi mutató névmás"},
             {"Virággal","Írásban jelölt teljes hasonulás"},{"Anyja","Írásban jelöletlen teljes hasonulás"},{"Éljen","Írásban jelöletlen teljes hasonulás"},
@@ -51,11 +52,19 @@ public class Rules_Activity extends AppCompatActivity {
 
         randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
         randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
-// Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyznek meg a kiválasztott szóhoz tartozó fogalommal
+// Itt az jön hogy csinálok egy másik tömböt amiben már nincs benne az a fogalom amit kirakok az egyik gombra. Így csak ebbeől kell 2 egymással nem egyenlő számot véletlen egnerálni
+        for (int i=0;i<fogalmak.length;i++) {
+            int j = 0;
+            if(!szavak[randomszam][1].equals(fogalmak[i])) {
+                fogalmak2[j] = fogalmak[i];
+                j++;
+            }
+        }
+// Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
-            randomFogalom1 = random.nextInt(fogalmak_arrayLength);
-            randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-    } while (fogalmak[randomFogalom1].equals(fogalmak[randomFogalom2]) & (szavak[randomszam][1].equals(fogalmak[randomFogalom1]) | szavak[randomszam][1].equals(fogalmak[randomFogalom2])));
+            randomFogalom1 = random.nextInt(fogalmak2.length);
+            randomFogalom2 = random.nextInt(fogalmak2.length);
+    } while (randomFogalom2 ==randomFogalom1);
 
         goodanswer = 0;
         wronganswer = 0;
