@@ -41,7 +41,7 @@ public class Rules_Activity extends AppCompatActivity {
         do {
             randomFogalom1 = random.nextInt(fogalmak_arrayLength);
             randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-        } while (randomFogalom1 == randomFogalom2 & ( (szavak[randomszo][1].equals(fogalmak[randomFogalom1])) | (szavak[randomszo][1].equals(fogalmak[randomFogalom2]))  ));
+        } while (fogalmak[randomFogalom1].equals(fogalmak[randomFogalom2]) & ( (szavak[randomszo][1].equals(fogalmak[randomFogalom1])) | (szavak[randomszo][1].equals(fogalmak[randomFogalom2]))  ));
 
 
 //Szövegmezők feliratozása
