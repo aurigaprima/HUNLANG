@@ -106,13 +106,11 @@ public class Mixed_Activity extends AppCompatActivity {
                 if (gomb1.getText() == szavak[randomInteger][0]) { // megnézem hogy a kivalasztott szópr elem megegyezik-e a helyes elsõ szóval
                     goodanswer++;
                     kep.setImageResource(R.drawable.ok);
-                    //szovegmezo1.setText("Helyes");
                     gomb1.setBackgroundColor(Color.GREEN);
                     szovegmezo2.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
                 } else {
                     wronganswer++;
                     kep.setImageResource(R.drawable.ko);
-                    //szovegmezo1.setText("helytelen");
                     gomb1.setBackgroundColor(Color.RED);
                     szovegmezo2.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
                 }
@@ -126,13 +124,11 @@ public class Mixed_Activity extends AppCompatActivity {
                 if (gomb2.getText() == szavak[randomInteger][1]) {
                     wronganswer++;
                     kep.setImageResource(R.drawable.ko);
-                    //szovegmezo1.setText("helytelen");
                     gomb2.setBackgroundColor(Color.RED);
                     szovegmezo2.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
                 } else {
                     goodanswer++;
                     kep.setImageResource(R.drawable.ok);
-                    //szovegmezo1.setText("Helyes");
                     gomb2.setBackgroundColor(Color.GREEN);
                     szovegmezo2.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
                 }

@@ -14,6 +14,7 @@
         android:gravity="center"
         android:text="Button"
         android:textAllCaps="false"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +28,9 @@
         android:gravity="center"
         android:text="Button"
         android:textAllCaps="false"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline1" />
 
@@ -40,6 +42,7 @@
         android:gravity="center"
         android:text="Button"
         android:textAllCaps="false"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -51,7 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
-        android:text="Button"
+        android:text="Tovább"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/szoveg4_RulesScreen_1" />
 
@@ -62,6 +66,8 @@
         android:layout_marginBottom="16dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button2_RulesScreen_1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +81,7 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
