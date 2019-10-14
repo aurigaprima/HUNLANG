@@ -58,7 +58,7 @@ public class Rules_Activity extends AppCompatActivity {
             if(!szavak[randomszam][1].equals(fogalmak[i])) {
                 fogalmak2[j] = fogalmak[i];
                 j++;
-            } 
+            }
         }
 // Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
