@@ -88,7 +88,6 @@ public class Rules_Activity extends AppCompatActivity {
             randomFogalom2 = random.nextInt(fogalmak2.length);
     } while (randomFogalom2 == randomFogalom1);
 
-//result.setText(fogalmak2[0] + "//" + randomFogalom1 + ":" + fogalmak2[randomFogalom1] + " " + randomFogalom2 + ":" + fogalmak2[randomFogalom2]);
         goodanswer = 0;
         wronganswer = 0;
 
@@ -226,5 +225,8 @@ public class Rules_Activity extends AppCompatActivity {
     private void openMainActivity() {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+    }
+    private void veletlenszam() {
+
     }
 }
