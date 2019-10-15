@@ -41,9 +41,9 @@ public class Rules_Activity extends AppCompatActivity {
     };
     Random random = new Random();
     int szavak_arrayLength = szavak.length; // a szavakat tartalmazó tömb hosszának megállapítása
-    int fogalmak_arrayLength = fogalmak.length; // a fogalmakat tartalmazó tömb hosszának megállapítása
     int randomszam,randomszo,randomFogalom1,randomFogalom2,goodanswer,wronganswer;
     String str1 = "Összes kérdés/Jó/Rossz válaszok száma: ";
+    int j = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class Rules_Activity extends AppCompatActivity {
         gombForward = (Button) findViewById(R.id.button3_RulesScreen_1); // Tovább gomb beallitas
         kep = (ImageView) findViewById(R.id.imageView_RulesScreen_1);
         gombForward.setEnabled(false); // A továb gomb még inaktív
+        result.setText(str1);
 // A vissza gomb
         homeButton_Rules = (ImageButton) findViewById(R.id.imageButton);
         homeButton_Rules.setBackgroundColor(Color.WHITE);
@@ -68,52 +69,44 @@ public class Rules_Activity extends AppCompatActivity {
                 openMainActivity();
             }
         });
+//
+        randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
+        randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat
 // A keresett szo megjelenitese
         question.setText(szavak[randomszam][0]);
-
-
-
-        randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
-        randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
-        
 // Itt az jön hogy csinálok egy másik tömböt amiben már nincs benne az a fogalom amit kirakok az egyik gombra. Így csak ebbeől kell 2 egymással nem egyenlő számot véletlen egnerálni
         for (int i=0;i<fogalmak.length;i++) {
-            int j = 0;
             if(!szavak[randomszam][1].equals(fogalmak[i])) {
                 fogalmak2[j] = fogalmak[i];
                 j++;
             }
-            if (szavak[randomszam][1].equals(fogalmak[i])) {
-                result.setText(fogalmak[i]);
-            }
         }
-
-// Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
+//1 veletlen szo a röviditett tömbből
+        randomFogalom1 = random.nextInt(fogalmak2.length);
+// Itt kellene keresni még 1 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
-            randomFogalom1 = random.nextInt(fogalmak2.length);
             randomFogalom2 = random.nextInt(fogalmak2.length);
     } while (randomFogalom2 == randomFogalom1);
 
+//result.setText(fogalmak2[0] + "//" + randomFogalom1 + ":" + fogalmak2[randomFogalom1] + " " + randomFogalom2 + ":" + fogalmak2[randomFogalom2]);
         goodanswer = 0;
         wronganswer = 0;
-
-
 
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ
         switch (randomszo) {
             case 0:
                 gombUpper.setText(szavak[randomszam][1]);
-                gombCenter.setText(fogalmak[randomFogalom1]);
-                gombLower.setText(fogalmak[randomFogalom2]);
+                gombCenter.setText(fogalmak2[randomFogalom1]);
+                gombLower.setText(fogalmak2[randomFogalom2]);
                 break;
             case 1:
-                gombUpper.setText(fogalmak[randomFogalom1]);
+                gombUpper.setText(fogalmak2[randomFogalom1]);
                 gombCenter.setText(szavak[randomszam][1]);
-                gombLower.setText(fogalmak[randomFogalom2]);
+                gombLower.setText(fogalmak2[randomFogalom2]);
                 break;
             case 2:
-                gombUpper.setText(fogalmak[randomFogalom1]);
-                gombCenter.setText(fogalmak[randomFogalom2]);
+                gombUpper.setText(fogalmak2[randomFogalom1]);
+                gombCenter.setText(fogalmak2[randomFogalom2]);
                 gombLower.setText(szavak[randomszam][1]);
                 break;
         }
@@ -178,30 +171,42 @@ public class Rules_Activity extends AppCompatActivity {
         gombForward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int j = 0;
                 randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
-                randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
-// Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyznek meg a kiválasztott szóhoz tartozó fogalommal
-                do {
-                    randomFogalom1 = random.nextInt(fogalmak_arrayLength);
-                    randomFogalom2 = random.nextInt(fogalmak_arrayLength);
-                } while (fogalmak[randomFogalom1].equals(fogalmak[randomFogalom2]) & (szavak[randomszam][1].equals(fogalmak[randomFogalom1]) | szavak[randomszam][1].equals(fogalmak[randomFogalom2])));
-                // A keresett szo kiirása
+                randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat
+// A keresett szo megjelenitese
                 question.setText(szavak[randomszam][0]);
+
+// Itt az jön hogy csinálok egy másik tömböt amiben már nincs benne az a fogalom amit kirakok az egyik gombra. Így csak ebbeől kell 2 egymással nem egyenlő számot véletlen egnerálni
+                for (int i=0;i<fogalmak.length;i++) {
+                    if(!szavak[randomszam][1].equals(fogalmak[i])) {
+                        fogalmak2[j] = fogalmak[i];
+                        j++;
+                    }
+                }
+
+//1 veletlen szo a röviditett tömbből
+                randomFogalom1 = random.nextInt(fogalmak2.length);
+// Itt kellene keresni még 1 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
+                do {
+                    randomFogalom2 = random.nextInt(fogalmak2.length);
+                } while (randomFogalom2 == randomFogalom1);
+
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ, a másik 2-re pedig rosszakat
                 switch (randomszo) {
                     case 0:
                         gombUpper.setText(szavak[randomszam][1]);
-                        gombCenter.setText(fogalmak[randomFogalom1]);
-                        gombLower.setText(fogalmak[randomFogalom2]);
+                        gombCenter.setText(fogalmak2[randomFogalom1]);
+                        gombLower.setText(fogalmak2[randomFogalom2]);
                         break;
                     case 1:
-                        gombUpper.setText(fogalmak[randomFogalom1]);
+                        gombUpper.setText(fogalmak2[randomFogalom1]);
                         gombCenter.setText(szavak[randomszam][1]);
-                        gombLower.setText(fogalmak[randomFogalom2]);
+                        gombLower.setText(fogalmak2[randomFogalom2]);
                         break;
                     case 2:
-                        gombUpper.setText(fogalmak[randomFogalom1]);
-                        gombCenter.setText(fogalmak[randomFogalom2]);
+                        gombUpper.setText(fogalmak2[randomFogalom1]);
+                        gombCenter.setText(fogalmak2[randomFogalom2]);
                         gombLower.setText(szavak[randomszam][1]);
                         break;
                 }
