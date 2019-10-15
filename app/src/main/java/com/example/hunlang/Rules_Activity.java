@@ -49,9 +49,33 @@ public class Rules_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules_);
+//Szövegmezők feliratozása
+        question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
+        result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
+//gombok megjelenítése
+        gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
+        gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
+        gombLower = (Button) findViewById(R.id.button4_RulesScreen_1); // Alsó gomb beallitas
+        gombForward = (Button) findViewById(R.id.button3_RulesScreen_1); // Tovább gomb beallitas
+        kep = (ImageView) findViewById(R.id.imageView_RulesScreen_1);
+        gombForward.setEnabled(false); // A továb gomb még inaktív
+// A vissza gomb
+        homeButton_Rules = (ImageButton) findViewById(R.id.imageButton);
+        homeButton_Rules.setBackgroundColor(Color.WHITE);
+        homeButton_Rules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainActivity();
+            }
+        });
+// A keresett szo megjelenitese
+        question.setText(szavak[randomszam][0]);
+
+
 
         randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
         randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat.
+        
 // Itt az jön hogy csinálok egy másik tömböt amiben már nincs benne az a fogalom amit kirakok az egyik gombra. Így csak ebbeől kell 2 egymással nem egyenlő számot véletlen egnerálni
         for (int i=0;i<fogalmak.length;i++) {
             int j = 0;
@@ -59,7 +83,11 @@ public class Rules_Activity extends AppCompatActivity {
                 fogalmak2[j] = fogalmak[i];
                 j++;
             }
+            if (szavak[randomszam][1].equals(fogalmak[i])) {
+                result.setText(fogalmak[i]);
+            }
         }
+
 // Itt kellene keresni még 2 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
         do {
             randomFogalom1 = random.nextInt(fogalmak2.length);
@@ -69,28 +97,8 @@ public class Rules_Activity extends AppCompatActivity {
         goodanswer = 0;
         wronganswer = 0;
 
-//Szövegmezők feliratozása
-        question = (TextView) findViewById(R.id.szoveg2_RulesScreen_1);
-        result = (TextView) findViewById(R.id.szoveg4_RulesScreen_1);
-//        result.setText(fogalmak.length + " - " + fogalmak2.length);
-//gombok megjelenítése
-        gombUpper = (Button) findViewById(R.id.button2_RulesScreen_1); // Felso gomb beallitas
-        gombCenter = (Button) findViewById(R.id.button1_RulesScreen_1); // Középső gomb beallitas
-        gombLower = (Button) findViewById(R.id.button4_RulesScreen_1); // Alsó gomb beallitas
-        gombForward = (Button) findViewById(R.id.button3_RulesScreen_1); // Tovább gomb beallitas
-        kep = (ImageView) findViewById(R.id.imageView_RulesScreen_1);
-        gombForward.setEnabled(false); // A továb gomb még inaktív
-        // A vissza gomb
-        homeButton_Rules = (ImageButton) findViewById(R.id.imageButton);
-        homeButton_Rules.setBackgroundColor(Color.WHITE);
-        homeButton_Rules.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
-// A keresett szo kiirása
-        question.setText(szavak[randomszam][0]);
+
+
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ
         switch (randomszo) {
             case 0:
