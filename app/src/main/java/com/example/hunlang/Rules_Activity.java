@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Rules_Activity extends AppCompatActivity {
+//START
     private ImageButton homeButton_Rules;
     private TextView question,result;
     private Button gombUpper, gombLower, gombCenter, gombForward;
@@ -70,6 +71,8 @@ public class Rules_Activity extends AppCompatActivity {
             }
         });
 //
+        randomNumberGenerator();
+/*
         randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
         randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat
 // A keresett szo megjelenitese
@@ -87,6 +90,8 @@ public class Rules_Activity extends AppCompatActivity {
         do {
             randomFogalom2 = random.nextInt(fogalmak2.length);
     } while (randomFogalom2 == randomFogalom1);
+*/
+
 
 //result.setText(fogalmak2[0] + "//" + randomFogalom1 + ":" + fogalmak2[randomFogalom1] + " " + randomFogalom2 + ":" + fogalmak2[randomFogalom2]);
         goodanswer = 0;
@@ -171,7 +176,8 @@ public class Rules_Activity extends AppCompatActivity {
         gombForward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int j = 0;
+            randomNumberGenerator();
+/*                int j = 0;
                 randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
                 randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat
 // A keresett szo megjelenitese
@@ -191,7 +197,7 @@ public class Rules_Activity extends AppCompatActivity {
                 do {
                     randomFogalom2 = random.nextInt(fogalmak2.length);
                 } while (randomFogalom2 == randomFogalom1);
-
+*/
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ, a másik 2-re pedig rosszakat
                 switch (randomszo) {
                     case 0:
@@ -227,4 +233,27 @@ public class Rules_Activity extends AppCompatActivity {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
+    void randomNumberGenerator() {
+        int j = 0;
+        randomszam = random.nextInt(szavak_arrayLength); // Véletlen szó kiválasztása a SZAVAK tömbből
+        randomszo = random.nextInt(3); // Melyik gombra tegyük ki az 1 helyes és 2 helytelen fogalmat
+        // A keresett szo megjelenitese
+        question.setText(szavak[randomszam][0]);
+
+        // Itt az jön hogy csinálok egy másik tömböt amiben már nincs benne az a fogalom amit kirakok az egyik gombra. Így csak ebbeől kell 2 egymással nem egyenlő számot véletlen egnerálni
+        for (int i=0;i<fogalmak.length;i++) {
+            if(!szavak[randomszam][1].equals(fogalmak[i])) {
+                fogalmak2[j] = fogalmak[i];
+                j++;
+            }
+        }
+        //1 veletlen szo a röviditett tömbből
+        randomFogalom1 = random.nextInt(fogalmak2.length);
+        // Itt kellene keresni még 1 szót a fogalmak közül amiben nincs 2 egyforma és nem egyeznek meg a kiválasztott szóhoz tartozó fogalommal
+        do {
+            randomFogalom2 = random.nextInt(fogalmak2.length);
+        } while (randomFogalom2 == randomFogalom1);
+    }
+//END
 }
