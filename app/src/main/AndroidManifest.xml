@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WithOrWithout_Activity"></activity>
+        <activity android:name=".LowerUpper"></activity>
+        <activity android:name=".WithOrWithout_Activity" />
         <activity android:name=".Mixed_Activity" />
         <activity android:name=".Rules_Activity" />
         <activity android:name=".Together_Activity" />

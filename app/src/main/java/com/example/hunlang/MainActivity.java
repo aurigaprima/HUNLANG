@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button TogetherButton,MixedButton,RulesButton,WithOrWithoutButton;
+    private Button TogetherButton,MixedButton,RulesButton,WithOrWithoutButton,UpperLowerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 openWithOrWithoutActivity();
             }
         });
+
+        UpperLowerButton = (Button) findViewById(R.id.button5);
+        UpperLowerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLowerUpperActivity();
+            }
+        });
     }
 
     private void openTogetherActivity() {
@@ -64,4 +72,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,WithOrWithout_Activity.class);
         startActivity(intent);
     }
+    private void openLowerUpperActivity() {
+        Intent intent = new Intent(this,LowerUpper.class);
+        startActivity(intent);
+    }
+
 }
