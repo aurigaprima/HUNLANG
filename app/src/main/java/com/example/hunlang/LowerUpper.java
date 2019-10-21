@@ -21,7 +21,8 @@ public class LowerUpper extends AppCompatActivity {
 
     String szavak[][] = {
             {"Velencei-tó","velencei-tó"},{"Észak-Afrika","észak-afrika"},{"Egri Csillagok","egri csillagok"},{"Csepel-szigeti","csepel-szigeti"},
-            {"Balaton-felvidéki","balaton-felvidéki"},{"oslói","Oslói"},{"moszkvai","Moszkvai"}
+            {"Balaton-felvidéki","balaton-felvidéki"},{"Oslói","oslói"},{"Moszkvai","moszkvai"},{"Nemzeti dal","nemzeti dal"},{"A kőszívű ember fiai","A Kőszívű Ember Fiai"},
+            {"Keleti pályaudvar","keleti pályaudvar"},{"Pénzügyminisztérium","pénzügyminisztérium"},{"pénzügyminisztériumi","Pénzügyminisztériumi"},{"Dél-budai","dél-budai"}
 
     };
     Random random = new Random();
