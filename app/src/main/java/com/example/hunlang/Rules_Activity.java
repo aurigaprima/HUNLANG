@@ -43,7 +43,7 @@ public class Rules_Activity extends AppCompatActivity {
     Random random = new Random();
     int szavak_arrayLength = szavak.length; // a szavakat tartalmazó tömb hosszának megállapítása
     int randomszam,randomszo,randomFogalom1,randomFogalom2,goodanswer,wronganswer;
-    String str1 = "Összes kérdés/Jó/Rossz válaszok száma: ";
+    String str1 = "Eredmény: ";
     int j = 0;
 
     @Override
@@ -123,12 +123,12 @@ public class Rules_Activity extends AppCompatActivity {
                     goodanswer++;
                     kep.setImageResource(R.drawable.ok);
                     gombUpper.setBackgroundColor(Color.GREEN);
-                    result.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
+                    result.setText(str1+(goodanswer+wronganswer)+"/"+goodanswer+"/"+wronganswer+"/"+(goodanswer/(goodanswer+wronganswer))*100);
                 } else {
                     wronganswer++;
                     kep.setImageResource(R.drawable.ko);
                     gombUpper.setBackgroundColor(Color.RED);
-                    result.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer);
+                    result.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer+"/"+(goodanswer/(goodanswer+wronganswer))*100);
                 }
                 gombCenter.setEnabled(false);
                 gombLower.setEnabled(false);
