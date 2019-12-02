@@ -23,7 +23,7 @@ public class LowerUpper extends AppCompatActivity {
             {"Velencei-tó","velencei-tó"},{"Észak-Afrika","észak-afrika"},{"Egri Csillagok","egri csillagok"},{"Csepel-szigeti","csepel-szigeti"},
             {"Balaton-felvidéki","balaton-felvidéki"},{"Oslói","oslói"},{"Moszkvai","moszkvai"},{"Nemzeti dal","nemzeti dal"},{"A kőszívű ember fiai","A Kőszívű Ember Fiai"},
             {"Keleti pályaudvar","keleti pályaudvar"},{"Pénzügyminisztérium","pénzügyminisztérium"},{"pénzügyminisztériumi","Pénzügyminisztériumi"},{"Dél-budai","dél-budai"}
-
+            {"Váci utca","váci utca"},{"Váci utcai","váci utcai"},{"Március 15. tér","március 15. tér"},{"Március 15. téri","március 15. téri"}
     };
     Random random = new Random();
     int arrayLength = szavak.length;

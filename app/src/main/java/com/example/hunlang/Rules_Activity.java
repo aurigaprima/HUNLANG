@@ -255,5 +255,8 @@ public class Rules_Activity extends AppCompatActivity {
             randomFogalom2 = random.nextInt(fogalmak2.length);
         } while (randomFogalom2 == randomFogalom1);
     }
+    void randomWordDisplay() {
+
+    }
 //END
 }
