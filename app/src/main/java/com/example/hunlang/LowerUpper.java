@@ -22,8 +22,10 @@ public class LowerUpper extends AppCompatActivity {
     String szavak[][] = {
             {"Velencei-tó","velencei-tó"},{"Észak-Afrika","észak-afrika"},{"Egri Csillagok","egri csillagok"},{"Csepel-szigeti","csepel-szigeti"},
             {"Balaton-felvidéki","balaton-felvidéki"},{"Oslói","oslói"},{"Moszkvai","moszkvai"},{"Nemzeti dal","nemzeti dal"},{"A kőszívű ember fiai","A Kőszívű Ember Fiai"},
-            {"Keleti pályaudvar","keleti pályaudvar"},{"Pénzügyminisztérium","pénzügyminisztérium"},{"pénzügyminisztériumi","Pénzügyminisztériumi"},{"Dél-budai","dél-budai"}
-            {"Váci utca","váci utca"},{"Váci utcai","váci utcai"},{"Március 15. tér","március 15. tér"},{"Március 15. téri","március 15. téri"}
+            {"Keleti pályaudvar","keleti pályaudvar"},{"Pénzügyminisztérium","pénzügyminisztérium"},{"pénzügyminisztériumi","Pénzügyminisztériumi"},{"Dél-budai","dél-budai"},
+            {"Váci utca","váci utca"},{"Váci utcai","váci utcai"},{"Március 15. tér","március 15. tér"},{"Március 15. téri","március 15. téri"},
+            {"Magyar Tudományos Akadémia","Magyar tudományos akadémia"},{"Holt-Tisza","Holt Tisza"},{"Magas-Tátra","Magas-tátra"},{"Szent Anna-tó","Szent Anna tó"},{"Csepel-sziget","Csepel Sziget"},{"Dunántúli-középhegység ","Dunántúli Középhegység "},{"Sváb-hegy","Sváb hegy"},{"Velencei-tó","Velencei tó"},
+            {"Nemzeti Múzeum","Nemzeti múzeum"},{"Szegedi Nemzeti Színház.","szegedi nemzeti színház."},{"József Attila Gimnázium","József Attila gimnázium"},{"Országos Széchényi Könyvtár","Országos Széchényi könyvtár"}
     };
     Random random = new Random();
     int arrayLength = szavak.length;

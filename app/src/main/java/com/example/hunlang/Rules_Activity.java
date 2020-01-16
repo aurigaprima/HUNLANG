@@ -43,6 +43,7 @@ public class Rules_Activity extends AppCompatActivity {
     Random random = new Random();
     int szavak_arrayLength = szavak.length; // a szavakat tartalmazó tömb hosszának megállapítása
     int randomszam,randomszo,randomFogalom1,randomFogalom2,goodanswer,wronganswer;
+    float percentage;
     String str1 = "Eredmény: ";
     int j = 0;
 
@@ -96,6 +97,7 @@ public class Rules_Activity extends AppCompatActivity {
 //result.setText(fogalmak2[0] + "//" + randomFogalom1 + ":" + fogalmak2[randomFogalom1] + " " + randomFogalom2 + ":" + fogalmak2[randomFogalom2]);
         goodanswer = 0;
         wronganswer = 0;
+        percentage = 0;
 
 // ITt az jön hogy véletlenszerűen az egyik gombra kirakom a jó választ
         switch (randomszo) {
@@ -123,12 +125,14 @@ public class Rules_Activity extends AppCompatActivity {
                     goodanswer++;
                     kep.setImageResource(R.drawable.ok);
                     gombUpper.setBackgroundColor(Color.GREEN);
-                    result.setText(str1+(goodanswer+wronganswer)+"/"+goodanswer+"/"+wronganswer+"/"+(goodanswer/(goodanswer+wronganswer))*100);
+                    percentage = goodanswer/(goodanswer+wronganswer);
+                    result.setText(str1+(goodanswer+wronganswer)+"/"+goodanswer+"/"+wronganswer+"/"+percentage);
                 } else {
                     wronganswer++;
                     kep.setImageResource(R.drawable.ko);
                     gombUpper.setBackgroundColor(Color.RED);
-                    result.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer+"/"+(goodanswer/(goodanswer+wronganswer))*100);
+                    percentage = goodanswer/(goodanswer+wronganswer);
+                    result.setText(str1+(goodanswer+wronganswer)+" / "+goodanswer+" / "+wronganswer+"/"+percentage);
                 }
                 gombCenter.setEnabled(false);
                 gombLower.setEnabled(false);
